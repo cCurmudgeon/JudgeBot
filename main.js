@@ -5,7 +5,7 @@ const dotenv = require('dotenv').config()
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const cooldowns = new Discord.Collection();
-config.prefix = tokens.env.DISCORD_TOKEN
+token = tokens.env.DISCORD_TOKEN
 /*
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles){
@@ -107,4 +107,4 @@ catch (error) {
 }
 });
 
-client.login (config.token)
+client.login (token)
