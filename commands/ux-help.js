@@ -19,7 +19,7 @@ module.exports = {
 			const embed ={
 				color: config.blue,
 				title: 'Help',
-				url: 'https://discord.js.org',
+				url: 'https://github.com/cCurmudgeon/JudgeBot/blob/master/Help.md',
 				author: {
 					name: 'Some name',
 					icon_url: 'https://i.imgur.com/wSTFkRM.png',
