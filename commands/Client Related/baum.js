@@ -13,7 +13,7 @@ execute(message, args){
     if(args[0] === '-r'){
         const exampleEmbed = {
             color: colors.blue,
-            description: 'Rules you have to adhere to when enjoying your stay in this server.',
+            description: 'Rules you have to adhere to when enjoying your stay in this server. We expect you to abide by the Discord ToS and Community Guidelines which can be found below!',
             image: {
                 url: 'https://i.imgur.com/h2MKp8Q.png',
             },
@@ -31,8 +31,16 @@ execute(message, args){
                     value: 'Keep shitposting/spamming in the specific channels.',
                 },
                 {
-                    name: 'Verbum Dei',
+                    name: 'Verbum Dei.',
                     value: 'Moderator\'s word is final.',
+                },
+                {
+                    name: "Discord ToS.",
+                    value: "https://discord.com/terms",
+                },
+                {
+                    name: "Discord Community Guidelines.",
+                    value: "https://discord.com/guidelines",
                 }],
             footer: {
                 text: 'Happy Dis~cording!'

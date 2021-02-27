@@ -16,6 +16,7 @@ for (const folder of commandFolders) {
 	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
 	for (const file of commandFiles) {
 		const command = require(`./commands/${folder}/${file}`);
+        console.log(`${file} loaded!`);
 		client.commands.set(command.name, command);
 	}
 }
@@ -31,9 +32,9 @@ fs.readdir("./owner", (err, files) => {
 
     console.log(`Loading ${ownerFiles.length} client commands!`);
 
-    ownerFiles.forEach((f, i) => {
+    ownerFiles.forEach((f) => {
         let clicommand = require(`./owner/${f}`);
-        console.log(`${i + 1}: ${f} loaded!`);
+        console.log(`${f} loaded!`);
         client.commands.set(clicommand.name, clicommand);
     });
 });
@@ -41,13 +42,13 @@ fs.readdir("./owner", (err, files) => {
 client.once('ready', () => {
 	
 	//client.user.setActivity(``, {type: config.watch});//
-	console.log('Horny Police is back in action lmfao!');
+	console.log(`${client} is back in action lmfao!`);
 		
 	client.guilds.cache.forEach(guild => {
 		console.log(`${guild.name} || ${guild.id}`);
 	});
 	var size = client.guilds.cache.size;
-		console.log(`${client.name} is active in ${size} servers`);
+		console.log(`${client.user.username} is active in ${size} servers`);
 	
     client.generateInvite({permissions: 336030807}).then(invite => {
 		console.log(`Click here to invite the bot to your server:\n${invite}`);
@@ -102,8 +103,11 @@ try {
 	command.execute(message, args);
 } 
 catch (error) {
-	console.error(error);
-	message.reply('Something is acting up!');
+    if(message.author == process.env.OWNER_ID){	
+    message.channel.send(`${error}`);
+    }
+    else message.reply('Something is acting up!');
+    
 }
 });
 

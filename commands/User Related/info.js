@@ -3,12 +3,11 @@ const Discord  = require('discord.js');
 const colors = require('../Configurations/colors.json');
 var moment = require('moment');
 
-module.exports.usrinfo = {
-name      :'-u',
-args      : true,
+module.exports = {
+name      :'usrinfo',
+othernames: ['userinfo'],
+args      : false,
 guildOnly : false,
-cooldown  : 5,
-owner     : true,
 execute(message, args){
 
     let user;
@@ -24,6 +23,8 @@ execute(message, args){
         let rolemap = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(r => r).join(",");
         if (rolemap.length > 1024) rolemap = "To many roles to display";
         if (!rolemap) rolemap = "No roles";
+
+        let roled = member.roles;
 
         const embed = new Discord.MessageEmbed()
             .setColor(colors.blue)
@@ -41,8 +42,13 @@ execute(message, args){
             .addField("Account Created On:", `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`, true) 
             .addField('\u200b', '\u200b')
             .addField("Roles:", rolemap, false);
+        
+        if(message.mention.users.first()){
+            embed.setThumbnail = message.mention.users.first().avatarURL({format: "png", size: 256, dynamic: true,});
+        }
 
         message.channel.send({embed});
+        message.channel.send(roled);
        }a();
 
 }};

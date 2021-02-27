@@ -31,7 +31,7 @@ function e(){
     if (message.mentions.users.first()){
         embed.title = `${name}\'s avatar!`;
     }
-    message.channel.send(embed)
+    message.channel.send(embed);
 }
 e();
 
