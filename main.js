@@ -1,11 +1,13 @@
 const fs = require('fs');
 const Discord =  require('discord.js');
 const config = require('./config.json');
-const dotenv = require('dotenv').config();
+const dotenv = require("dotenv").config({ path: './tokens.env' });
+token = process.env.TOKEN;
+console.log(token);
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const cooldowns = new Discord.Collection();
-token = process.env.DISCORD_TOKEN;
+
 /*
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles){
