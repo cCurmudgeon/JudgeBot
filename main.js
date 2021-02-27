@@ -1,11 +1,11 @@
 const fs = require('fs');
 const Discord =  require('discord.js');
 const config = require('./config.json');
-const dotenv = require('dotenv').config()
+const dotenv = require('dotenv').config();
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const cooldowns = new Discord.Collection();
-token = process.env.DISCORD_TOKEN
+token = process.env.DISCORD_TOKEN;
 /*
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles){
@@ -38,14 +38,14 @@ client.once('ready', () => {
 		
 	client.guilds.cache.forEach(guild => {
 		console.log(`${guild.name} || ${guild.id}`);
-	})
-	var size = client.guilds.cache.size
-		console.log(`${client.name} is active in ${size} servers`)
+	});
+	var size = client.guilds.cache.size;
+		console.log(`${client.name} is active in ${size} servers`);
 	
     client.generateInvite({permissions: 336030807}).then(invite => {
 		console.log(`Click here to invite the bot to your server:\n${invite}`);
-	})
-})
+	});
+});
 
 
 
@@ -76,8 +76,8 @@ if (command.args && !args.length) {
 }
 
 if (command.owner = true && message.author.id != config.ownerID){
-	let reply = `This is a client owner command.`
-	console.log(`User : ${message.author.username} | ${message.author.id} tried to use a client command.`)
+	let reply = `This is a client owner command.`;
+	console.log(`User : ${message.author.username} | ${message.author.id} tried to use a client command.`);
 	message.reply(reply);
 	return;
 } 
@@ -107,4 +107,4 @@ catch (error) {
 }
 });
 
-client.login (token)
+client.login (token);
