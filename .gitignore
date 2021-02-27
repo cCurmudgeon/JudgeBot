@@ -1,2 +1,3 @@
 node_modules
 tokens.env
+'./commands/Client Related/baum.js'

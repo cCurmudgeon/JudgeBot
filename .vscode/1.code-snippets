@@ -6,14 +6,14 @@
 
 			"const fs = require('fs');",
 			"const Discord  = require('discord.js');",
+			"const colors = require('../Configurations/colors.json')",
 			
-			"module.exports.reload = {",
+			"module.exports = {",
 			"name: 'name',",
 			"othername: 'aliases',",
 			"description: 'quick command handling',",
 			"args: false,",
 			"usage: '<usage>',",
-			"owner: false,",
 			"execute(message, args){",
 
 			"}}"

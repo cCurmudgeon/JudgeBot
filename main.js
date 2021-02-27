@@ -70,7 +70,11 @@ if (!command) return;
 if (!message.content == command) return;
 
 if (command.guildOnly && message.channel.type === 'dm') {
-	return message.reply('Haa! You can\'t do that inside dms');
+	return message.reply('Command is restricted inside DMs, use a guild!');
+}
+
+if (command.owner && message.author.id != process.env.OWNER_ID){
+    return message.reply('Client owner command!');
 }
 
 if (command.args && !args.length) {

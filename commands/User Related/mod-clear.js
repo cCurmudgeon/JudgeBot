@@ -4,8 +4,8 @@ const Discord =  require('discord.js');
 
 module.exports = {
     name: 'clear',
-    othername: ['purge', 'kill-chat'],
-    description: 'msg clear command',
+    othername: ['purge'],
+    description: 'Clear messages.',
     args: true,
     usage: '<user>',
     guildOnly: true,
@@ -31,16 +31,3 @@ module.exports = {
         
     }
 };
-
- module.exports.warn = {
-    name: 'warn',
-    description: 'warn people',
-    args: true,
-    usage: '<user>',
-    guildOnly: true,
-
-    execute(message, args){
-message.channel.send('hello!');
-    }
-     
- };

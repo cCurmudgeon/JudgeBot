@@ -17,19 +17,17 @@ execute(message, args){
         user = message.author;
     }
 
+    const member = message.guild.member(user);
+    let rolemap = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(r => r).join(",");
+    if (rolemap.length > 1024) rolemap = "To many roles to display";
+    if (!rolemap) rolemap = "No roles";
+    let roled = member.roles;
+
     function a(){
-        
-        const member = message.guild.member(user);
-        let rolemap = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(r => r).join(",");
-        if (rolemap.length > 1024) rolemap = "To many roles to display";
-        if (!rolemap) rolemap = "No roles";
-
-        let roled = member.roles;
-
         const embed = new Discord.MessageEmbed()
             .setColor(colors.blue)
             .setTitle('User Information')
-            .setThumbnail(message.author.avatarURL({format: "png", size: 256, dynamic: true,}))
+            .setThumbnail(user.avatarURL({format: "png", size: 256, dynamic: true,}))
             .addField(`Username:`, `${user.tag} || ${user}`, true)
             .addField('\u200b', '\u200b')
             .addField("ID:", `${user.id}`, true)
@@ -43,12 +41,10 @@ execute(message, args){
             .addField('\u200b', '\u200b')
             .addField("Roles:", rolemap, false);
         
-        if(message.mention.users.first()){
-            embed.setThumbnail = message.mention.users.first().avatarURL({format: "png", size: 256, dynamic: true,});
-        }
+
 
         message.channel.send({embed});
-        message.channel.send(roled);
+    
        }a();
 
 }};
