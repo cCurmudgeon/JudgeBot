@@ -21,10 +21,10 @@ execute(message, args){
             return message.reply('```Defined file was not found or corrupted.```').then(console.log(err));
         }    
         message.channel.send(`${commandName}.js has been reloaded.`);
-        const gid = message.guild.name
-        console.log(`${commandName} was reloaded in ${gid}`)
+        const gid = message.guild.name;
+        console.log(`${commandName} was reloaded in ${gid}`);
         return;
-}}
+}};
 
 module.exports.leave = {
     name: "leave",
@@ -34,9 +34,9 @@ module.exports.leave = {
     
     execute(message, args){
 
-    const gid = message.guild.name
-    const gidid = message.guild.id
-    message.guild.leave()
-    message.channel.send('welp').then(console.log[`Left from ${gid} [${gidid}]`])
+    const gid = message.guild.name;
+    const gidid = message.guild.id;
+    message.guild.leave();
+    message.channel.send('welp').then(console.log[`Left from ${gid} [${gidid}]`]);
     return;
-}}
+}};

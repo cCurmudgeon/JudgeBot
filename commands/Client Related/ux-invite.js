@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord =  require('discord.js');
-const config = require('../config.json');
+const colors = require('../Configurations/colors.json');
 
 module.exports = {
     name: 'invite',
@@ -9,11 +9,10 @@ module.exports = {
     execute(message, args){
         const invite = new Discord.MessageEmbed()
         .setTitle ("Here is the invite you asked for!")
-        .setColor (config.color)
-        .setDescription ('Click on the link below.')
-        .setImage ('https://i.imgur.com/GyFYKzR.png')
-        .setURL ('https://discord.com/oauth2/authorize?client_id=775740192531152917&scope=bot&permissions=8')
+        .setColor (colors.blue)
+        .setDescription ('Click on the link.')
+        .setURL ('https://discord.com/api/oauth2/authorize?client_id=799519710886363136&permissions=336030807&scope=bot');
     
     message.channel.send (invite);
     }
-}
+};

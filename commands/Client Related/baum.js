@@ -1,4 +1,5 @@
 const Discord =  require('discord.js');
+const colors = require('../Configurations/colors.json');
 
 module.exports = {
     name: 'baum',
@@ -11,7 +12,7 @@ execute(message, args){
    
     if(args[0] === '-r'){
         const exampleEmbed = {
-            color: 0x0099ff,
+            color: colors.blue,
             description: 'Rules you have to adhere to when enjoying your stay in this server.',
             image: {
                 url: 'https://i.imgur.com/h2MKp8Q.png',

@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord  = require('discord.js');
-const config = require('../config.json')
+const colors = require('../Configurations/colors.json');
 var moment = require('moment');
 
 module.exports.usrinfo = {
@@ -26,7 +26,7 @@ execute(message, args){
         if (!rolemap) rolemap = "No roles";
 
         const embed = new Discord.MessageEmbed()
-            .setColor(config.blue)
+            .setColor(colors.blue)
             .setTitle('User Information')
             .setThumbnail(message.author.avatarURL({format: "png", size: 256, dynamic: true,}))
             .addField(`Username:`, `${user.tag} || ${user}`, true)
@@ -40,9 +40,9 @@ execute(message, args){
             .addField("Joined The Server On:", `${moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
             .addField("Account Created On:", `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`, true) 
             .addField('\u200b', '\u200b')
-            .addField("Roles:", rolemap, false)
+            .addField("Roles:", rolemap, false);
 
         message.channel.send({embed});
-       }a()
+       }a();
 
-}}
+}};

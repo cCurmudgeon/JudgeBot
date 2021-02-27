@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord =  require('discord.js');
-const config = require('../config.json');
+const colors = require('../Configurations/colors.json');
 
 const client = new Discord.Client();
 
@@ -13,11 +13,11 @@ module.exports ={
         var nickname = message.guild.member(message.author).nickname;
         var name = nickname ? nickname : message.author.username;
         /*const acccreated = client.user.createdTimestamp;*/
-        const IDbot = client.user.id
-        const size = client.guilds.cache.size
+        const IDbot = client.user.id;
+        const size = client.guilds.cache.size;
     
         const info = new Discord.MessageEmbed()
-        .setColor(config.color)
+        .setColor(colors.blue)
         .setTitle('bruh')
         .setDescription('Alpha 0.1.0')
         .addFields(
@@ -26,9 +26,9 @@ module.exports ={
          { name: '\u200B', value: '\u200B' },
          { name: 'ID', value: IDbot, inline: true },
          { name: 'In', value: `${size} guilds.`}
-        )
+        );
     
         message.channel.send(info);
     }
 
-}
+};

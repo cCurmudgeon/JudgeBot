@@ -17,18 +17,18 @@ execute(message, args){
     const doembed = new Discord.MessageEmbed()
     .setTitle (`${name} is ${something}`)
     .setImage (gif)
-    .setColor (config.color)
+    .setColor (config.color);
     
-    message.channel.send(doembed)
+    message.channel.send(doembed);
     }
 
-    let something = 'eating!'
+    let something = 'eating!';
     const booger = ['https://media1.tenor.com/images/da04ae0f64633db1ac16fc8820f2d3dc/tenor.gif',
                 'https://tenor.com/bheW5.gif'];
                 
     const gif = booger[Math.floor(Math.random()* booger.length )];
-doing ()
-}}
+doing ();
+}};
 
 module.exports ={
 
@@ -46,10 +46,10 @@ execute(message, args){
     const doembed = new Discord.MessageEmbed()
     .setTitle (`${name} is ${something}`)
     .setImage (gif)
-    .setColor (config.color)
+    .setColor (config.color);
     
-    message.channel.send(doembed)
+    message.channel.send(doembed);
     }
 
 
-}}
+}};

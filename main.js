@@ -1,35 +1,40 @@
 const fs = require('fs');
 const Discord =  require('discord.js');
-const config = require('./config.json');
+
 const dotenv = require("dotenv").config({ path: './tokens.env' });
 token = process.env.TOKEN;
-console.log(token);
+
+const config = require('./config.json');
+const prefix = config.prefix;
+
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const cooldowns = new Discord.Collection();
 
-/*
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-for (const file of commandFiles){
-	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
-}*/
+const commandFolders = fs.readdirSync('./commands');
+for (const folder of commandFolders) {
+	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
+	for (const file of commandFiles) {
+		const command = require(`./commands/${folder}/${file}`);
+		client.commands.set(command.name, command);
+	}
+}
 
-fs.readdir("./commands", (err, files) => {
+fs.readdir("./owner", (err, files) => {
     if(err) console.error(err);
 
-    let commandFiles = files.filter(f => f.split(".").pop() === "js");
-    if(commandFiles.length <= 0) {
+    let ownerFiles = files.filter(f => f.split(".").pop() === "js");
+    if(ownerFiles.length <= 0) {
         console.log("No commands found to load!");
         return;
     }
 
-    console.log(`Loading ${commandFiles.length} commands!`);
+    console.log(`Loading ${ownerFiles.length} client commands!`);
 
-    commandFiles.forEach((f, i) => {
-        let command = require(`./commands/${f}`);
+    ownerFiles.forEach((f, i) => {
+        let clicommand = require(`./owner/${f}`);
         console.log(`${i + 1}: ${f} loaded!`);
-        client.commands.set(command.name, command);
+        client.commands.set(clicommand.name, clicommand);
     });
 });
 
@@ -76,13 +81,6 @@ if (command.args && !args.length) {
 }
     return message.channel.send(reply);
 }
-
-if (command.owner = true && message.author.id != config.ownerID){
-	let reply = `This is a client owner command.`;
-	console.log(`User : ${message.author.username} | ${message.author.id} tried to use a client command.`);
-	message.reply(reply);
-	return;
-} 
 
 if (!cooldowns.has(command.name)) {
 	cooldowns.set(command.name, new Discord.Collection());
