@@ -22,7 +22,7 @@
   },
   "engines": {
     "node": "v15.6.0",
-    "npm" : "7.6.0"
+    "npm": "7.6.0"
   },
   "repository": {
     "type": "git",
@@ -36,5 +36,6 @@
     "js",
     "\"moderation\"",
     "bot"
-  ]
+  ],
+  "devDependencies": {}
 }
