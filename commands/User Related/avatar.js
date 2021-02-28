@@ -1,6 +1,7 @@
-const fs = require('fs');
 const Discord  = require('discord.js');
 const colors = require('../Configurations/colors.json');
+
+
 module.exports = {
 name      :'avatar',
 othername :'pfp',

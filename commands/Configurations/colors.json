@@ -1,4 +1,14 @@
 {
-    "blue": "0x0099ff",
-    "prefix": "."
+    "blue"        : "0x0099ff",
+    "MD_holo"     : "#E91E63",
+    "MD_admin"    : "#6B50B2",
+    "MD_dev"      : "FF9DD9",
+    "MD_mod"      : "#AD0B43",
+    "MD_PR"       : "#FA8C29",
+    "MD_vip"      : "#FAE321",
+    "MD_PU"       : "#69FF5A",
+    "MD_GL"       : "#5AA4FF",
+    "MD_user"     : "#AC4236",
+    "MD_yellow"   : "#F68328",
+    "MD_designer" : "#FC6DAA"
 }

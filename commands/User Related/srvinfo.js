@@ -1,8 +1,7 @@
-
-const fs = require('fs');
 const Discord  = require('discord.js');
 const colors = require('../Configurations/colors.json');
 var moment = require('moment');
+
 
 module.exports = {
 name: 'srvinfo',
@@ -48,13 +47,12 @@ function a(){
         .setTitle('All of the server roles.')
         .setDescription(rolemap);
         message.channel.send(rolesembed);
-        message.delete();
         return;
     }
     else serverembed.setFooter("Run -roles to get the roles list!");
     message.channel.send(serverembed);
     
-    message.delete();
+
 
 
 }a();

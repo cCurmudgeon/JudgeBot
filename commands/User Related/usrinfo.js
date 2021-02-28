@@ -1,7 +1,7 @@
-const fs = require('fs');
 const Discord  = require('discord.js');
 const colors = require('../Configurations/colors.json');
 var moment = require('moment');
+
 
 module.exports = {
 name      :'usrinfo',

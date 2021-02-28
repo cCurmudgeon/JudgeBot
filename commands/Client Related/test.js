@@ -1,8 +1,6 @@
 const Discord =  require('discord.js');
 
 
-
-
 module.exports.chomp = {
     name: 'chomp',
     description: 'random burgur gifs',
