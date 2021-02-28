@@ -8,8 +8,31 @@ module.exports = {
 	description: 'List all of the commands or info about a specific command.',
 	aliases: ['commands'],
 	usage: '<command name>',
-	cooldown: 2,
 
 	execute(message, args) {
-message.channel.send('WIP')
+function h(){
+
+	const help = {
+		color: colors.blue,
+		title: 'Command Hub',
+		description: 'All the commands that you (user) can use.',
+		image: {
+			url: 'https://i.imgur.com/xQ6ULAo.png',
+		},
+		fields: [
+			{
+				name: 'User Related.',
+				value: '``.help usr`` for more information!',
+				inline: true,
+			},
+			{
+				name: 'Moderation Related.',
+				value: '``.help mod`` for more information!',
+				inline: true,
+			},
+],
+		footer: {
+			text: 'Happy Dis~cording!'
+		}};
+}
 }};
