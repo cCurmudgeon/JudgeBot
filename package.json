@@ -1,25 +1,20 @@
 {
   "name": "judgebot",
   "version": "1.5.6",
-  "description": "Reaction bot for discord.",
+  "description": "Moderation bot for discord.",
   "main": "main.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node .",
+    "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "cCurmudgeon",
   "license": "ISC",
   "dependencies": {
-    "discord-slash-commands-client": "^1.1.1",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
-    "eslint": "^7.19.0",
     "fetch": "^1.1.0",
     "form-data": "^3.0.0",
-    "graphql": "^15.5.0",
-    "graphql-request": "^3.4.0",
-    "i": "^0.3.6",
     "jshint": "^2.12.0",
     "moment": "^2.29.1",
     "node-fetch": "^2.6.1",
@@ -28,20 +23,22 @@
     "process": "^0.11.10",
     "sqlite3": "^5.0.0",
     "striptags": "^3.1.1",
-    "turndown": "^7.0.0"
+    "xmlhttprequest": "^1.8.0"
+  },
+  "engines": {
+    "node": "v15.6.0",
+    "npm" : "7.6.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cCurmudgeon/Reactionaught.git"
+    "url": "git+https://github.com/cCurmudgeon/JudgeBot.git"
   },
   "bugs": {
-    "url": "https://github.com/cCurmudgeon/Reactionaught/issues"
+    "url": "https://github.com/cCurmudgeon/JudgeBot/issues"
   },
-  "homepage": "https://github.com/cCurmudgeon/Reactionaught#readme",
-  "devDependencies": {},
+  "homepage": "https://github.com/cCurmudgeon/JudgeBot#readme",
   "keywords": [
     "js",
-    "based",
     "\"moderation\"",
     "bot"
   ]

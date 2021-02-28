@@ -108,6 +108,7 @@ try {
 } 
 catch (error) {
     if(message.author == process.env.OWNER_ID){	
+		console.log(error)
     message.channel.send(`${error}`);
     }
     else message.reply('Something is acting up!');

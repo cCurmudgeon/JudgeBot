@@ -36,20 +36,22 @@ function a(){
     .addField("Channels", message.guild.channels.cache.size, inline)
     .addField("Verification Level", verlvl[message.guild.verificationLevel],inline)
     .addField("You Joined on",`${moment.utc(message.member.joinedAt).format("dddd, MMMM Do YYYY")}`)
-    .addField("Created on", `${moment.utc(message.guild.createdAt).format("dddd MMMM Do YYYY")}`);
-    
+    .addField("Created on", `${moment.utc(message.guild.createdAt).format("dddd MMMM Do YYYY")}`)
+    .addField("Server ID", message.guild.id, inline);
 
-    if(args[0] === '-verbose'){
+    if(args[0] === '-roles'){
         let rolemap = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(r => r).join(",");
         if (!rolemap) rolemap = "No roles";
-        serverembed.addField("Server ID", message.guild.id, inline);
+
         rolesembed = new Discord.MessageEmbed()
         .setColor(colors.blue)
         .setTitle('All of the server roles.')
         .setDescription(rolemap);
         message.channel.send(rolesembed);
+        message.delete();
+        return;
     }
-    else serverembed.setFooter("Run -verbose roles to get the roles list!");
+    else serverembed.setFooter("Run -roles to get the roles list!");
     message.channel.send(serverembed);
     
     message.delete();
