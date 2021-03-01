@@ -62,7 +62,7 @@ execute(message, args){
         colorbed = colors.MD_GL;
     }
     else 
-    colorbed = colors.MDYellow;
+    colorbed = colors.MDyellow;
 
 //data filtering
 
@@ -167,9 +167,165 @@ execute(message, args){
     message.channel.send({embed: uembed});
     }
 
+    async function m(){
+        manga = args[1];
+        const response = await fetch(`https://api.mangadex.org/v2/manga/${manga}`);
+        const data = await response.json();
+        console.log(data);
+
+        const tags = {
+
+            "1"   : "4-Koma",
+            "4"   : "Award Winning", 
+            "7"   : "Doujinshi",
+            "21"  : "Oneshot",
+            "36"  : "Long Strip",
+            "42"  : "Adaptation",
+            "43"  : "Anthology",
+            "44"  : "Web Comic",
+            "45"  : "Full Color",
+            "46"  : "User Created",
+            "47"  : "Official Colored",
+            "48"  : "Fan Colored",
+            "2"   : "Action",
+            "3"   : "Adventure",
+            "5"   : "Comedy",
+            "8"   : "Drama",
+            "10"  : "Fantasy",
+            "13"  : "Historical",
+            "14"  : "Horror",
+            "17"  : "Mecha",
+            "18"  : "Medical",
+            "20"  : "Mystery",
+            "22"  : "Psychological",
+            "23"  : "Romance",
+            "25"  : "Sci-Fi",
+            "28"  : "Shoujo Ai",
+            "30"  : "Shounen Ai",
+            "31"  : "Slice of Life",
+            "33"  : "Sports",
+            "35"  : "Tragedy",
+            "37"  : "Yaoi",
+            "38"  : "Yuri",
+            "41"  : "Isekai",
+            "51"  : "Crime",
+            "52"  : "Magical Girls",
+            "53"  : "Philosophical",
+            "54"  : "Superhero",
+            "55"  : "Thirller",
+            "56"  : "Wuxia",
+            "6"   : "Cooking",
+            "11"  : "Gyaru",
+            "12"  : "Harem",
+            "16"  : "Martial Arts",
+            "19"  : "Music",
+            "24"  : "School Life",
+            "34"  : "Supernatural",
+            "40"  : "Video Games",
+            "57"  : "Aliens",
+            "58"  : "Animals",
+            "59"  : "Crossdressing",
+            "60"  : "Demons",
+            "61"  : "Deliquents",
+            "62"  : "Genderswap",
+            "63"  : "Ghosts",
+            "64"  : "Monster Girls",
+            "65"  : "Loli",
+            "66"  : "Magic",
+            "67"  : "Military",
+            "68"  : "Monsters",
+            "69"  : "Ninja",
+            "70"  : "Office Workers",
+            "71"  : "Police",
+            "72"  : "Post-Apoclyptic",
+            "73"  : "Reincarnation",
+            "74"  : "Reverse Harem",
+            "75"  : "Samurai",
+            "76"  : "Shota",
+            "77"  : "Survival",
+            "78"  : "Time Travel",
+            "79"  : "Vampires",
+            "80"  : "Traditional Games",
+            "81"  : "Virtual Reality",
+            "82"  : "Zombies",
+            "83"  : "Incest",
+            "84"  : "Mafia",
+            "85"  : "Villainess",
+            "9"   : "Ecchi",
+            "32"  : "Smut",
+            "49"  : "Gore",
+            "50"  : "Sexual Violence"
+        };
+
+
+        const membed = {
+            color: colors.blue,
+            title: `${data.data.title}`,
+            url: `https://www.mangadex.org/manga/${data.data.id}`,
+            thumbnail:{
+                url: data.data.mainCover
+            },
+            description: data.data.description,
+            fields:[
+                {
+                    name: "Artist",
+                    value: data.data.artist,
+                    inline: true,
+                },
+                {
+                    name: "Author",
+                    value: data.data.author,
+                    inline: true,
+                },
+                {
+                    name: "Hentai:",
+                    value: data.data.isHentai,
+                    inline: true,
+                },
+                {
+                    name: "tags",
+                    value: tags[data.data.tags],
+                    inline: true,
+                },
+                {
+                    name: "MD@H client:",
+                    value: "undef",
+                    inline: true,
+                },
+                {
+                    name: "Joined:",
+                    value: `undef`,
+                    inline: true,
+                },
+                {
+                    name: "Last seen:",
+                    value: `undef`,
+                    inline: true,
+                },],
+            footer: 'Use <.help mangadex> for more MangaDex commands!',                
+        };
+        message.channel.send({embed: membed});
+        message.channel.send(tags[data.data.tags]);
+        message.channel.send(data.data.tags);
+
+    }
+    async function t(){
+        const response = await fetch('https://api.mangadex.org/v2/tag');
+        const data = await response.json();
+        console.log(data);
+    }
+
 if(args[0] == 'user'){
 u();
-}   
+}
+
+if(args[0] == 'manga'){
+m();
+}
+if(args[0] == 'tag'){
+t();
+}
+
 }};
 
 
