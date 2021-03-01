@@ -19,7 +19,7 @@ module.exports = {
             return message.reply('Due to Discord limitations give me a number between 1 and 99.');
         }
         message.channel.bulkDelete(amount, true);
-        message.channel.send(`Cleared ${amount - 1} of messages for you.`).catch(err => {
+        message.channel.send(`Cleared \`\`${amount - 1}\`\` of messages for you.`).catch(err => {
             console.error(err);
             message.author.send('Discord doesn\'t allow me to delete messages that are older than 2 weeks.');});
 
