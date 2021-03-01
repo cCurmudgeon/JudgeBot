@@ -1,7 +1,6 @@
 const Discord  = require('discord.js');
 const colors = require('../Configurations/colors.json');
 const fetch = require("node-fetch");
-const cheerio = require('cheerio');
 
 
 module.exports = {

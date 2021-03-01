@@ -1,6 +1,8 @@
 const fs = require('fs');
 const Discord  = require('discord.js');
 const colors = require('../commands/Configurations/colors.json');
+const bbcode = require('bbcode');
+const fetch = require('node-fetch');
 
 module.exports = {
 name: 'eval',

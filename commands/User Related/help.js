@@ -101,7 +101,7 @@ execute(message, args) {
 				},
 				{
 					name: 'Manga Search based on name. [WIP]',
-					value: '``.mangadexid manga <name>``',
+					value: '``.mangadexname manga <name>``',
 					inline: false,
 				}],
 			footer:{

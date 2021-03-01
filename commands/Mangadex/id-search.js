@@ -2,10 +2,13 @@ const Discord  = require('discord.js');
 const colors = require('../Configurations/colors.json');
 const fetch = require("node-fetch");
 const moment = require('moment');
+const bbcode = require('bbcode');
+var converter = require('html-to-markdown');
 
 
 module.exports = {
 name: 'mangadexid',
+othername: 'mdid',
 description: 'mangadex quick search',
 args: true,
 usage: '<titleid> || <userid>',
@@ -116,7 +119,8 @@ execute(message, args){
     var seenAt = seen.toLocaleTimeString("UTC");
     let seenAtaprox = moment(seen).startOf('hour').fromNow();
 
-
+    let deschtml = bbcode.parse(data.data.description);
+    var description = converter.convert(deschtml);
 
     const uembed = {
         color: colorbed,
@@ -176,10 +180,46 @@ execute(message, args){
         const tags = {
 
             "1"   : "4-Koma",
-            "4"   : "Award Winning", 
+            "2"   : "Action",
+            "3"   : "Adventure",
+            "4"   : "Award Winning",
+            "5"   : "Comedy",
+            "6"   : "Cooking",
             "7"   : "Doujinshi",
+            "8"   : "Drama",
+            "9"   : "Ecchi",
+            "10"  : "Fantasy",
+            "11"  : "Gyaru",
+            "12"  : "Harem",
+            "13"  : "Historical",
+            "14"  : "Horror",
+            "15"  : "null",
+            "16"  : "Martial Arts",
+            "17"  : "Mecha",
+            "18"  : "Medical",
+            "19"  : "Music",
+            "20"  : "Mystery",
             "21"  : "Oneshot",
+            "22"  : "Psychological",
+            "23"  : "Romance",
+            "24"  : "School Life",
+            "25"  : "Sci-Fi",
+            "26"  : "null",
+            "27"  : "null",
+            "28"  : "Shoujo Ai",
+            "29"  : "null",
+            "30"  : "Shounen Ai",
+            "31"  : "Slice of Life",
+            "32"  : "Smut",
+            "33"  : "Sports",
+            "34"  : "Supernatural",
+            "35"  : "Tragedy",
             "36"  : "Long Strip",
+            "37"  : "Yaoi",
+            "38"  : "Yuri",
+            "39"  : "null",
+            "40"  : "Video Games",
+            "41"  : "Isekai",
             "42"  : "Adaptation",
             "43"  : "Anthology",
             "44"  : "Web Comic",
@@ -187,41 +227,14 @@ execute(message, args){
             "46"  : "User Created",
             "47"  : "Official Colored",
             "48"  : "Fan Colored",
-            "2"   : "Action",
-            "3"   : "Adventure",
-            "5"   : "Comedy",
-            "8"   : "Drama",
-            "10"  : "Fantasy",
-            "13"  : "Historical",
-            "14"  : "Horror",
-            "17"  : "Mecha",
-            "18"  : "Medical",
-            "20"  : "Mystery",
-            "22"  : "Psychological",
-            "23"  : "Romance",
-            "25"  : "Sci-Fi",
-            "28"  : "Shoujo Ai",
-            "30"  : "Shounen Ai",
-            "31"  : "Slice of Life",
-            "33"  : "Sports",
-            "35"  : "Tragedy",
-            "37"  : "Yaoi",
-            "38"  : "Yuri",
-            "41"  : "Isekai",
+            "49"  : "Gore", 
+            "50"  : "Sexual Violence",
             "51"  : "Crime",
             "52"  : "Magical Girls",
             "53"  : "Philosophical",
             "54"  : "Superhero",
             "55"  : "Thirller",
             "56"  : "Wuxia",
-            "6"   : "Cooking",
-            "11"  : "Gyaru",
-            "12"  : "Harem",
-            "16"  : "Martial Arts",
-            "19"  : "Music",
-            "24"  : "School Life",
-            "34"  : "Supernatural",
-            "40"  : "Video Games",
             "57"  : "Aliens",
             "58"  : "Animals",
             "59"  : "Crossdressing",
@@ -251,30 +264,58 @@ execute(message, args){
             "83"  : "Incest",
             "84"  : "Mafia",
             "85"  : "Villainess",
-            "9"   : "Ecchi",
-            "32"  : "Smut",
-            "49"  : "Gore",
-            "50"  : "Sexual Violence"
+            
         };
+
+    
 const res = data.data;
 //let sliced = res.tags.slice(' ').join(', ');
 //Thanks Tracreed!
 str = [];
-for(tag in res.tags) {
-    str.push(tags[tag]);
-     
-}
-str.join(', ');
+res.tags.forEach(tag => str.push(tags[tag]));
 
+console.log(str);
+str = str.join(', ');
+
+//Color coordination
+
+let colorbed;
+if(res.publication.language === 'jp'){
+    colorbed = colors.lang_jp;
+}
+if(res.publication.language === 'kr'){
+    colorbed = colors.lang_kr;
+}
+if(res.publication.language === 'cn'){
+    colorbed = colors.lang_cn;
+}
+if(res.isHentai === true){
+    colorbed = colors.Hentaired;
+}
+
+//More UX friendly true false;
+let hentie;
+if(res.isHentai === true){
+    hentie = 'Yes';
+}else hentie = 'No';
+
+var views = res.views;
+String(views).replace(/(.)(?=(\d{3})+$)/g,'$1,');
+
+var follows = res.follows;
+String(follows).replace(/(.)(?=(\d{3})+$)/g,'$1,');
+
+let deschtml = bbcode.parse(res.description);
+var description = converter.convert(deschtml);
 
         const membed = {
-            color: colors.blue,
+            color: colorbed,
             title: `${res.title}`,
             url: `https://www.mangadex.org/manga/${res.id}`,
             thumbnail:{
                 url: res.mainCover
             },
-            description: res.description,
+            description: description,
             fields:[
                 {
                     name: "Artist",
@@ -288,33 +329,32 @@ str.join(', ');
                 },
                 {
                     name: "Hentai:",
-                    value: res.isHentai,
-                    inline: true,
-                },
-                {
-                    name: "tags",
-                    value: str,
+                    value: hentie,
                     inline: true,
                 },
                 {
                     name: "Views",
-                    value: res.views,
+                    value: views,
                     inline: true,
                 },
                 {
                     name: "Follows",
-                    value: res.follows,
+                    value: follows,
                     inline: true,
                 },
                 {
                     name: "Rating",
                     value: `${res.rating.bayesian} from ${res.rating.users} users.`,
                     inline: true,
+                },
+                {
+                    name: "Tags",
+                    value: str,
+                    inline: false,
                 },],
             footer: 'Use <.help mangadex> for more MangaDex commands!',                
         };
         message.channel.send({embed: membed});
-        message.channel.send(str)
 
     }
     async function t(){
