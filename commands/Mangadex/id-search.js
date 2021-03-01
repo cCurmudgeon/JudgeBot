@@ -256,57 +256,65 @@ execute(message, args){
             "49"  : "Gore",
             "50"  : "Sexual Violence"
         };
+const res = data.data;
+//let sliced = res.tags.slice(' ').join(', ');
+//Thanks Tracreed!
+str = [];
+for(tag in res.tags) {
+    str.push(tags[tag]);
+     
+}
+str.join(', ');
 
 
         const membed = {
             color: colors.blue,
-            title: `${data.data.title}`,
-            url: `https://www.mangadex.org/manga/${data.data.id}`,
+            title: `${res.title}`,
+            url: `https://www.mangadex.org/manga/${res.id}`,
             thumbnail:{
-                url: data.data.mainCover
+                url: res.mainCover
             },
-            description: data.data.description,
+            description: res.description,
             fields:[
                 {
                     name: "Artist",
-                    value: data.data.artist,
+                    value: res.artist,
                     inline: true,
                 },
                 {
                     name: "Author",
-                    value: data.data.author,
+                    value: res.author,
                     inline: true,
                 },
                 {
                     name: "Hentai:",
-                    value: data.data.isHentai,
+                    value: res.isHentai,
                     inline: true,
                 },
                 {
                     name: "tags",
-                    value: tags[data.data.tags],
+                    value: str,
                     inline: true,
                 },
                 {
-                    name: "MD@H client:",
-                    value: "undef",
+                    name: "Views",
+                    value: res.views,
                     inline: true,
                 },
                 {
-                    name: "Joined:",
-                    value: `undef`,
+                    name: "Follows",
+                    value: res.follows,
                     inline: true,
                 },
                 {
-                    name: "Last seen:",
-                    value: `undef`,
+                    name: "Rating",
+                    value: `${res.rating.bayesian} from ${res.rating.users} users.`,
                     inline: true,
                 },],
             footer: 'Use <.help mangadex> for more MangaDex commands!',                
         };
         message.channel.send({embed: membed});
-        message.channel.send(tags[data.data.tags]);
-        message.channel.send(data.data.tags);
+        message.channel.send(str)
 
     }
     async function t(){
