@@ -13,7 +13,9 @@ execute(message, args){
     let user;
     if (message.mentions.users.first()) {
         user = message.mentions.users.first();
-    } else {
+    } else if (args[0] === true){
+        
+
         user = message.author;
     }
 

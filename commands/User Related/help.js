@@ -29,12 +29,22 @@ execute(message, args) {
 				inline: false,
 			},
 			{
-				name: 'MangaDex Search,',
+				name: 'MangaDex API.',
 				value: '``.help mangadex`` for more information!',
+				inline: false,
+			},
+		    {
+				name: 'Pixiv API.',
+                value: '``.help pixiv`` for more information!',
+				inline: false,
+			},
+		    {
+				name: 'Anilist API.',
+				value: '``.help anilist`` for more information!',
 				inline: false,
 			}],
 		footer: {
-			text: 'Happy Dis~cording!'
+			text: '``.help map`` for command aliases!'
 		}};
 
 		const usr = {
@@ -108,17 +118,89 @@ execute(message, args) {
 				text: 'Seaching based on name/username is not supported by MangaDex yet. So don\'t expect 100% accuracy of the search results.'
 			} 
 		};
+		const anilist = {
+			color: colors.anilist_blue,
+			title: 'Anilist API based commands.',
+			description: 'Please don\'t spam these commands! [WIP]',
+			fields: [
+				{
+					name: 'Anime search.',
+					value: '``.anilist anime <name>``',
+					inline: false,
+				},
+				{
+					name: 'Manga search.',
+					value: '``.anilist manga <name>``',
+					inline: false,
+				},
+				{
+					name: 'User search.',
+					value: '``.anilist user <name>``',
+					inline: false,
+				}],
+			footer: {
+				text: 'Work in progress.'
+			}
+		};
+		const pixv = {
+			color: colors.pixiv_blue,
+			title: 'Pixiv API based commands.',
+			description: 'Please don\'t spam these commands! [WIP]',
+			fields: [
+			   {
+                    name: 'Pixiv illustration search.',
+					value: '``.pixiv illust search <name>``',
+					inline: false,
+			   },
+			   {
+				   name: 'Pixiv user search.',
+				   value: '``.pixiv user search <name>``',
+				   inline: false,
+			   }],
+			footer: {
+				text: 'Pixiv commands are based on ``pixiv-api-client`` package for now. [WIP]'
+			}
+
+		};
+
+		const smallmap = {
+			color: colors.blue,
+			name: 'All the aliases available to commands.',
+			fields: [
+				{
+					name: 'MangaDex.',
+					value: '``.mdid`` for ``.mangadexid`` and ``.mdname`` for ``.mangadexname``',
+					inline: false,
+				},
+				{
+					name: 'Pixiv.',
+					value: '``.piv`` for ``.pixiv``',
+					inline: false,
+				}],
+			footer: {
+				text: 'All of those can be used as alternatives listed in ``.help``.'
+			}
+		};
 	
 if(!args[0]){
 	message.channel.send({embed: help});
 }
-if(args[0] == 'mod'){
+if(args[0] === 'mod'){
 	message.channel.send({embed: mod});
 }
-if(args[0] == 'user'){
+if(args[0] === 'user'){
 	message.channel.send({embed: usr});
 }
-if(args[0] == 'mangadex'){
+if(args[0] === 'mangadex'){
 	message.channel.send({embed: md});
+}
+if(args[0] === 'anilist'){
+	message.channel.send({embed: anilist});
+}
+if(args[0] === 'pixiv'){
+	message.channel.send({embed: pixv});
+}
+if(args[0] === 'map'){
+	message.channel.send({embed: smallmap});
 }
 }};

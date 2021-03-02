@@ -18,7 +18,8 @@ execute(message, args){
     }
 
     const member = message.guild.member(user);
-    let rolemap = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(r => r).join(",");
+
+    let rolemap = member.roles.cache.sort((a, b) => b.position - a.position).map(r => r).join(",");
     if (rolemap.length > 1024) rolemap = "To many roles to display";
     if (!rolemap) rolemap = "No roles";
     let roled = member.roles;

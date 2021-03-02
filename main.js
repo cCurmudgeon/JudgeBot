@@ -87,14 +87,34 @@ if (!message.content.startsWith(config.prefix) || message.author.bot) return;
     	return message.reply('Client owner command!');
 	}
 
-	if (command.args && !args.length) {
+/*function capitalizeFirstLetter(string) {
+	return string[0 && 1].toUpperCase() + string.slice(1);
+}*/
+
+	if(command.permissions && !process.env.OWNER_ID) {
+		permsToString = command.permissions.toString().toLowerCase().replace(/_/g, " ");
+		//permsToUpper = capitalizeFirstLetter(permsToString);
+	 	const authorperms = message.channel.permissionsFor(message.author);
+	 	if (!authorperms || !authorperms.has(command.permissions)) {
+	 		return message.reply(`To use this command you need \`\`${permsToString}\`\` permission(s)`);
+		}
+	}
+		
+
+	if(command.args && !args.length) {
 		let reply = `Hey! missing arguments, ${message.author}!`;
-	if (command.usage) {
+	if(command.usage) {
 		reply += `\nYou should do it like this : \`${prefix}${command.name} ${command.usage}\``;
 	}
     	return message.channel.send(reply);
 	}
 
+	if(command.WIP === true){
+    
+		if(message.author.id != process.env.OWNER_ID){
+			return message.reply('Command is still work in progress!');
+		}
+	}
 
 	try {
 		command.execute(message, args);

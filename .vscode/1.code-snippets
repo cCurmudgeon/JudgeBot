@@ -15,7 +15,8 @@
 			"description: 'quick command handling',",
 			"args: false,",
 			"usage: '<usage>',",
-			"owner: false",
+			"owner: false,",
+			"WIP : true,",
 			"execute(message, args){",
 
 			"}}"
