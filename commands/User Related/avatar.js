@@ -13,10 +13,14 @@ execute(message, args){
     let user;
     if (message.mentions.users.first()) {
         user = message.mentions.users.first();
-    } else if (args[0] === true){
-        
-
+    } 
+    if (args[0] === true){   
+     user = message.guild.members.get(args[0]); 
+     console.log(user);  
+    }
+    if(!args[0] && !message.mentions.users.first()){
         user = message.author;
+        console.log(user);
     }
 
     const nickname = message.guild.member(user).nickname;

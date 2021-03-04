@@ -44,7 +44,7 @@ execute(message, args) {
 				inline: false,
 			}],
 		footer: {
-			text: '``.help map`` for command aliases!'
+			text: '.help map for command aliases!'
 		}};
 
 		const usr = {
