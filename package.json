@@ -1,29 +1,35 @@
 {
-  "name": "judgebot",
-  "version": "1.5.6",
-  "description": "Moderation bot for discord.",
+  "name": "reimu",
+  "version": "2.0.1",
+  "description": "idk man this is just full of api requests",
   "main": "main.js",
   "type": "commonjs",
   "scripts": {
     "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "cCurmudgeon",
+  "author": "Curmudgeon",
   "license": "ISC",
   "dependencies": {
     "bbcode": "^0.1.5",
+    "body-parser": "^1.19.0",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0",
     "html-to-markdown": "^1.0.0",
     "jshint": "^2.12.0",
+    "mangadex-full-api": "^4.3.1",
     "moment": "^2.29.1",
-    "npm": "^7.5.5",
-    "numeral": "^2.0.6",
-    "path": "^0.12.7",
-    "pixiv.ts": "^0.4.1",
-    "process": "^0.11.10",
-    "typescript": "^4.2.2",
-    "xmlhttprequest": "^1.8.0"
+    "node-fetch": "^2.6.1",
+    "npm": "^7.6.1",
+    "passport": "^0.4.1",
+    "passport-pixiv": "^0.1.0",
+    "pixiv-api-client": "^0.25.0",
+    "spotify-web-api-js": "^1.5.1",
+    "systeminformation": "^5.6.1",
+    "turndown": "^7.0.0"
   },
   "engines": {
     "node": "v15.6.0",
@@ -31,15 +37,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cCurmudgeon/JudgeBot.git"
+    "url": "git+https://git.fuyu.moe/Curmudgeon/Reimu.git"
   },
   "bugs": {
-    "url": "https://github.com/cCurmudgeon/JudgeBot/issues"
+    "url": "https://git.fuyu.moe/Curmudgeon/Reimu/issues"
   },
-  "homepage": "https://github.com/cCurmudgeon/JudgeBot#readme",
-  "keywords": [
-    "js",
-    "\"moderation\"",
-    "bot"
-  ]
+  "homepage": "https://git.fuyu.moe/Curmudgeon/Reimu",
+  "devDependencies": {
+    "prettier": "2.2.1"
+  }
 }
