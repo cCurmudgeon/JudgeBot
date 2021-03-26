@@ -42,7 +42,7 @@ Simple js bot written for fun and to learn js.
 </details>
 
 Download the files and make a ``.env`` file to include tokens.
-run ``npm install`` and then ``node .``.
+run ``npm install`` and then ``node .``
 
 ### DotEnv format
 
