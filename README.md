@@ -44,3 +44,9 @@ Simple js bot written for fun and to learn js.
 Download the files and make a ``.env`` file to include tokens.
 Then change the dotenv config path in each file so they would work.
 run ``npm install`` and then ``node .`` I recommend installing pm2.
+
+### dotEnv format.
+
+TOKEN = Nzk5NTE5NzEwODg2MzYzMTM2.YAEwwQ.30UI3rHPQx451EmH7V78DwVM01k
+MDUSR = mpaarthurnax@gmail.com
+MDPASS = rachala2005
