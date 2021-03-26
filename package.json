@@ -22,6 +22,7 @@
     "jshint": "^2.12.0",
     "mangadex-full-api": "^4.3.1",
     "moment": "^2.29.1",
+    "nhentai": "^2.0.0",
     "node-fetch": "^2.6.1",
     "npm": "^7.6.1",
     "systeminformation": "^5.6.1",
