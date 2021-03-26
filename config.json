@@ -1,6 +1,3 @@
 {
-    "prefix" : ".",
-    "watch"  : "WATCHING",
-    "listen" : "LISTENING",
-    "play"   : "PLAYING"
+    "prefix" : "."
 }
