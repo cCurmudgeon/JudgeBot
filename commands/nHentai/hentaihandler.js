@@ -36,7 +36,7 @@ module.exports = {
           pages: work.details.pages,
           upload: work.details.uploaded,
           group: work.details.groups,
-          tags: work.details.tags
+          tags: work.details.tags,
           url: work.link,
           favicon: "https://i.imgur.com/uLAimaY.png",
         };
@@ -44,12 +44,9 @@ module.exports = {
           pages: work.pages,
         };
         let tagdata = [];
-
-        for(tag in data.tags){
-        const taglinker = `https://nhentai.net/tag/${data.tags}`;
-        console.log(taglinker);
-        tagdata.push(taglinker);
-        }
+        data.tags.forEach(tag => tagdata.push(`https://nhentai.net/tag/${tag}`));
+        tagged = tagdata.toString().replace(regex, "").replace(" ", "-");
+        console.log(tagged);
 
         const embed = {
           color: colors.nhentai,
