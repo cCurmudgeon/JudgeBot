@@ -1,4 +1,4 @@
-const colors = require("../Configurations/colors.json");
+/*const colors = require("../Configurations/colors.json");
 const nhentai = require("nhentai-js");
 const bbcode = require("bbcode");
 
@@ -32,6 +32,7 @@ module.exports = {
           native: work.nativeTitle ? work.nativeTitle : work.title,
           artist: work.details.artists,
           lang: work.details.languages,
+          date: work.date,
           cate: work.details.categories,
           pages: work.details.pages,
           upload: work.details.uploaded,
@@ -88,7 +89,7 @@ module.exports = {
             },
             {
               name: "Uploaded Date",
-              value: data.upload,
+              value: data.date,
               inline: true,
             },
             {
@@ -109,3 +110,4 @@ module.exports = {
     s();
   },
 };
+*/
