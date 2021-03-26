@@ -253,7 +253,7 @@ module.exports = {
           inact: truefalse[group.inactive],
           favicon: "https://i.imgur.com/gFzVv6g.png",
         };
-        console.log(`${data.leader}, ${data.found}`)
+        console.log(`${data.leader}, ${data.found}`);
         const gembed = {
           color: colors.MD_yellow,
           title: data.title,

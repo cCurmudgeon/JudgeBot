@@ -16,5 +16,6 @@
     "lang_kr"      : "#FDFDFD",
     "lang_cn"      : "#7EC7F1",
     "pixiv_blue"   : "#0097FA",
-    "anilist_blue" : "#0B1622"
+    "anilist_blue" : "#0B1622",
+    "nhentai"      : "#EC2854"
 }
