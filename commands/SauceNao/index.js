@@ -1,16 +1,16 @@
-const dotenv = require("dotenv");
-const { argsToArgsConfig } = require("graphql/type/definition");
-const sagiri = require("sagiri");
-const client = sagiri(process.env.NAO_SECRET);
-
+/*const dotenv = require("dotenv");
+const fetch = require("node-fetch");
+const url = `https://saucenao.com/search?`;
 const search = async (Arg) => {
-const results = await client(Arg);
-console.log(results);
-console.log(results.raw);
-}
+    const response = await fetch(url,
+        METHOD: POST);
+    const data = await response.json();
+    console.log(data);
+};
 module.exports = {
 name: 'sauce',
 execute(message, args){
     console.log(args[0]);
     search(args[0]);
 }};
+*/
