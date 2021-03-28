@@ -43,7 +43,6 @@ module.exports = {
             .toUpperCase() + word.substring(1).toLowerCase()).join(" ");
         //+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-        const command = 'anilist';
         const arg = message.content.slice(prefix.length + 1 + command.length + 1 + args[0].length);
 
         //=====================Anime/Manga Search================================
