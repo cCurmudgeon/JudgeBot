@@ -6,4 +6,5 @@ othername: 'git',
 execute(message, args){
     let link = 'https://github.com/cCurmudgeon/Reimu/tree/';
     message.channel.send(link + args[0]);
-}}
+}
+};

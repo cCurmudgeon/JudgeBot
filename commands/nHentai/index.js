@@ -1,6 +1,3 @@
-const { response } = require("express");
-const { API } = require("nhentai-api");
-const api = new API();
 
 module.exports = {
   name: "nhentai",
