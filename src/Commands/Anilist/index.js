@@ -28,7 +28,7 @@ module.exports = {
       });
       if (response.error) {
         if (response.error.status === 404) {
-          return message.reply("No Results Were Found For The Given Keywords.");
+          return message.reply("No results were found for the given keywords.");
         }
       }
       const embed = aniInfoBed(response, colors.anilist_blue);
@@ -41,7 +41,7 @@ module.exports = {
       });
       if (response.error) {
         if (response.error.status === 404) {
-          return message.reply("No Results Were Found For The Given Keywords.");
+          return message.reply("No results were found for the given keywords.");
         }
       }
       const embed = manInfoBed(response, colors.anilist_blue);
@@ -53,7 +53,7 @@ module.exports = {
       });
       if (response.error) {
         if (response.error.status === 404) {
-          return message.reply("No Results Were Found For The Given Keywords.");
+          return message.reply("No results were found for the given keywords.");
         }
       }
       const embed = usrInfoBed(response, colors.anilist_blue);
@@ -65,7 +65,7 @@ module.exports = {
       });
       if (response.error) {
         if (response.error.status === 404) {
-          return message.reply("No Results Were Found For The Given Keywords.");
+          return message.reply("No results were found for the given keywords.");
         }
       }
       const embed = charInfoBed(response, colors.anilist_blue);
