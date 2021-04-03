@@ -1,0 +1,29 @@
+{
+  "name": "reimu",
+  "version": "3.0.0",
+  "description": "Just another Discord.js bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "node './src/index.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cCurmudgeon/Reimu.git"
+  },
+  "keywords": [
+    "Javascript",
+    "discord"
+  ],
+  "author": "Curmudgeon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cCurmudgeon/Reimu/issues"
+  },
+  "homepage": "https://github.com/cCurmudgeon/Reimu#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^8.2.0",
+    "graphql-request": "^3.4.0",
+    "turndown": "^7.0.0"
+  }
+}
