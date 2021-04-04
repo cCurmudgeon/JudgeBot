@@ -18,6 +18,7 @@ module.exports = {
     if (!command) return;
 
     if (command.permissions) {
+      if(message.author.id !== owner){
       const perms = capitalize(command.permissions);
       const authorperms = message.channel.permissionsFor(message.author);
       if (!authorperms || !authorperms.has(command.permissions)) {
@@ -25,7 +26,7 @@ module.exports = {
           `To use this command you need \`\`${perms}\`\` permission(s)`
         );
       }
-    }
+    }}
 
     if (command.args && !args.length) {
       message.reply(`.help ${command.name} for information.`);
