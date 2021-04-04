@@ -16,7 +16,7 @@ module.exports = {
       prefix.length + 1 + this.name.length + 1 + args[0].length
     );
     if (args[0] === "get") {
-      const data = getBed(await kongou.get(parseInt(arg)), nhentai);
+      const data = getBed(await kongou.get(arg), nhentai);
       message.channel.send({embed: data});
     }
     if(args[0] === "search"){
