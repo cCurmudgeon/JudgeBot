@@ -20,7 +20,7 @@ function getBed(data, color) {
       name: "nhentai",
       icon_url: "https://i.imgur.com/hdUkQgO.png",
     },
-    url: data.details.title.link,
+    url: data.details.link,
     thumbnail: {
       url: data.images[0],
     },
