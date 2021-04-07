@@ -1,5 +1,19 @@
 function saucify(result, color) {
-  console.log(result);
+  if (result[0].similarity < 40) {
+    const lowsim = {
+      colors: color,
+      author: {
+        name: "SauceNAO",
+        icon_url: "https://i.imgur.com/JYHmuID.png",
+      },
+      title: "No results found!",
+      image: {
+        url:
+          "https://media1.tenor.com/images/0f6b30e2ce79ae5c2b7e0f174783e9b2/tenor.gif",
+      },
+    };
+    return lowsim;
+  }
   let altSites = [];
   if (result[1] !== undefined) {
     result.shift();
