@@ -1,7 +1,12 @@
-const { helpBed, cumand } = require("./Embeds/help");
+const { helpBed, specificHelp } = require("./Embeds/help");
+const Truse = {
+  true: "Yes",
+  false: "No",
+};
 module.exports = {
   name: "help",
   description: "Maps all of the commands.",
+  permission: ["SEND_MESSAGES"],
   args: false,
   category: "Client",
   async execute(message, args, prefix, owner, main) {
@@ -14,6 +19,7 @@ module.exports = {
         permission: command.permissions,
         args: command.args,
         usage: command.usage,
+        type: command.type,
         category: command.category,
       });
     });
@@ -22,20 +28,28 @@ module.exports = {
         embed: helpBed(commands, prefix, main),
       });
     } else {
-      console.log(args[0]);
       let answer = [];
       commands.forEach((command) => {
         if (command.name === args[0]) {
           answer.push({
             name: command.name,
             description: command.description,
-            usage: command.usage,
+            permission: command.permission
+              ? command.permission.join(", ")
+              : "Nothin' Special",
+            args: Truse[command.args],
+            usage: command.usage
+              ? prefix + command.name + " " + command.usage
+              : "[Any specified type or nothing]",
+            type: command.type
+              ? command.type.join(", ")
+              : "No Type(s) Specified!",
             category: command.category,
           });
         }
       });
       message.channel.send({
-        embed: cumand(answer[0], prefix, main),
+        embed: specificHelp(answer[0], prefix, main),
       });
     }
   },

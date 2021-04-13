@@ -1,2 +1,2 @@
 cd src
-node .
+npx nodemon

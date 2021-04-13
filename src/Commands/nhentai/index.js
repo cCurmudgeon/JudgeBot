@@ -1,7 +1,7 @@
 const battleship = require("kongou");
 const kongou = new battleship();
 const { nhentai } = require("../../colors.json");
-const { getBed } = require("./get");
+const { getBed } = require("./Embeds/get");
 
 module.exports = {
   name: "nhentai",
@@ -16,14 +16,14 @@ module.exports = {
       prefix.length + 1 + this.name.length + 1 + args[0].length
     );
     if (args[0] === "get") {
-      const data = getBed(await kongou.get(arg), nhentai);
-      message.channel.send({embed: data});
+      const res = getBed(await kongou.get(arg), nhentai);
+      message.channel.send({ embed: res });
     }
-    if(args[0] === "search"){
-        const res = await kongou.search(arg, 1, 1);
-        const data = getBed(res, nhentai);
-        message.channel.send({embed: data});
-    }
-    else return message.reply(this.name + ' only has ' + this.usage + '.');
+    if (args[0] === "search") {
+      const res = getBed(await kongou.search(arg, 1, 1), nhentai);
+      message.channel.send({
+        embed: res,
+      });
+    } else return message.reply(".help " + this.name + " for help.");
   },
 };

@@ -1,7 +1,6 @@
 function getBed(data, color) {
   let categori = [];
   let tagg = [];
-
   data.category.forEach((cate) => {
     categori.push(cate.hyptxt);
   });
@@ -9,9 +8,10 @@ function getBed(data, color) {
     tagg.push(tag.hyptxt);
   });
   if (tagg.toString().length >= 1000) {
-    while (tags.toString().length >= 1000) {
+    while (tagg.toString().length >= 990) {
       tagg.pop();
     }
+    tagg.push("and so it goes...");
   }
   const embed = {
     color: color,
@@ -52,7 +52,9 @@ function getBed(data, color) {
       },
       {
         name: "Native Title",
-        value: data.details.title.japanese,
+        value: data.details.title.japanese
+          ? data.details.title.japanese
+          : data.details.title.pretty,
         inline: false,
       },
     ],

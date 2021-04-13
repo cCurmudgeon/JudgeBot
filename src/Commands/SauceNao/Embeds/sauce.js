@@ -16,12 +16,12 @@ function saucify(result, color) {
   }
   let altSites = [];
   if (result[1] !== undefined) {
-    result.shift();
     result.forEach((resu) => {
+      console.log(resu);
       altSites.push(`[${resu.site}](${resu.url})`);
     });
+    altSites.shift();
   } else altSites.push(`[${result[0].site}](${result[0].url})`);
-  altSites.sort();
   const embed = {
     colors: color,
     author: {

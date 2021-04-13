@@ -11,6 +11,7 @@ const colors = require("../../colors.json");
 module.exports = {
   name: "anilist",
   description: "Shows anilist anime/manga, user and character information.",
+  permission: ["SEND_MESSAGES"],
   args: true,
   usage: "<type> <keywords>",
   type: ["anime", "manga", "user", "character"],

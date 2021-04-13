@@ -1,0 +1,19 @@
+{
+"Module define": {
+	"scope": "javascript",
+	"prefix": "modDef",
+	"body": [
+"module.exports = {",
+  "name: string,",
+  "description: string,",
+  "permission: array,",
+  "args: boolean,",
+  "usage: string,",
+  "type: array,",
+  "category: string,",
+  "async execute(message, args, prefix, owner, main){}}",
+	],
+	"description": "Defines a new module export of a command."
+}
+
+}

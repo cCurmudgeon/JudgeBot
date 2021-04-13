@@ -1,7 +1,7 @@
 module.exports = {
   name: "clear",
   description: "Clear messages.",
-  permissions: "MANAGE_MESSAGES",
+  permissions: ["MANAGE_MESSAGES"],
   args: true,
   usage: "<number>",
   category: "Moderation",

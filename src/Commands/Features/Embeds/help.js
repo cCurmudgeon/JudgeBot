@@ -37,7 +37,7 @@ function helpBed(data, prefix, color) {
   };
   return embed;
 }
-function cumand(data, prefix, color) {
+function specificHelp(data, prefix, color) {
   const embed = {
     color: color,
     title: data.name + " help",
@@ -54,12 +54,27 @@ function cumand(data, prefix, color) {
         inline: true,
       },
       {
+        name: "Arguments Required?",
+        value: data.args,
+        inline: true,
+      },
+      {
+        name: "Permissions Required",
+        value: data.permission,
+        inline: true,
+      },
+      {
+        name: "Types",
+        value: data.type,
+        inline: true,
+      },
+      {
         name: "Usage",
-        value: prefix + data.name + ' ' + data.usage,
+        value: "``" + data.usage + "``",
         inline: false,
-      }
+      },
     ],
   };
   return embed;
 }
-module.exports = { helpBed, cumand };
+module.exports = { helpBed, specificHelp };
