@@ -7,7 +7,7 @@ const {
 } = require("./Embeds/define");
 
 const { fetch } = require("./API/api");
-const colors = require("../../colors.json");
+
 module.exports = {
   name: "anilist",
   description: "Shows anilist anime/manga, user and character information.",
@@ -16,8 +16,7 @@ module.exports = {
   usage: "<type> <keywords>",
   type: ["anime", "manga", "user", "character"],
   category: "Features",
-
-  async execute(message, args, prefix) {
+  async execute(message, args, prefix, owner, colors) {
     const arg = message.content.slice(
       prefix.length + 1 + this.name.length + 1 + args[0].length
     );

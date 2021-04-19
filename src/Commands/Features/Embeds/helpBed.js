@@ -2,15 +2,19 @@ function helpBed(data, prefix, color) {
   let client = [];
   let mod = [];
   let feature = [];
+  let usrRelated = [];
   data.forEach((command) => {
     if (command.category === "Moderation") {
       mod.push(command.name);
     }
-    if (command.category === "Features") {
-      feature.push(command.name);
-    }
     if (command.category === "Client") {
       client.push(command.name);
+    }
+    if (command.category === "User Related") {
+      usrRelated.push(command.name);
+    }
+    if (command.category === "Features") {
+      feature.push(command.name);
     }
   });
   const embed = {
@@ -26,6 +30,11 @@ function helpBed(data, prefix, color) {
       {
         name: "Moderation",
         value: `\`${mod.join("\n")}\``,
+        inline: true,
+      },
+      {
+        name: "User Related",
+        value: `\`${usrRelated.join("\n")}\``,
         inline: true,
       },
       {
@@ -54,7 +63,7 @@ function specificHelp(data, prefix, color) {
         inline: true,
       },
       {
-        name: "Arguments Required?",
+        name: "Arguments?",
         value: data.args,
         inline: true,
       },
@@ -65,8 +74,8 @@ function specificHelp(data, prefix, color) {
       },
       {
         name: "Types",
-        value: data.type,
-        inline: true,
+        value: "``" + data.type + "``",
+        inline: false,
       },
       {
         name: "Usage",

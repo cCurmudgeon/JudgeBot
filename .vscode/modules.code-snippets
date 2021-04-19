@@ -11,7 +11,7 @@
   "usage: string,",
   "type: array,",
   "category: string,",
-  "async execute(message, args, prefix, owner, main){}}",
+  "async execute(message, args, prefix, owner, colors){}}",
 	],
 	"description": "Defines a new module export of a command."
 }

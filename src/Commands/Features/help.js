@@ -1,4 +1,4 @@
-const { helpBed, specificHelp } = require("./Embeds/help");
+const { helpBed, specificHelp } = require("./Embeds/helpBed");
 const Truse = {
   true: "Yes",
   false: "No",
@@ -9,7 +9,7 @@ module.exports = {
   permission: ["SEND_MESSAGES"],
   args: false,
   category: "Client",
-  async execute(message, args, prefix, owner, main) {
+  async execute(message, args, prefix, owner, colors) {
     const commandcollection = message.client.commands;
     let commands = [];
     commandcollection.map((command) => {
@@ -25,7 +25,7 @@ module.exports = {
     });
     if (!args.length) {
       message.channel.send({
-        embed: helpBed(commands, prefix, main),
+        embed: helpBed(commands, prefix, colors.main),
       });
     } else {
       let answer = [];
@@ -49,7 +49,7 @@ module.exports = {
         }
       });
       message.channel.send({
-        embed: specificHelp(answer[0], prefix, main),
+        embed: specificHelp(answer[0], prefix, colors.main),
       });
     }
   },

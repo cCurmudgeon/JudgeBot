@@ -1,5 +1,5 @@
 const { capitalize } = require("./Options/filters");
-const {main} = require('../colors.json');
+const colors = require("../colors.json");
 module.exports = {
   name: "message",
   once: false,
@@ -18,15 +18,16 @@ module.exports = {
     if (!command) return;
 
     if (command.permissions) {
-      if(message.author.id !== owner){
-      const perms = capitalize(command.permissions);
-      const authorperms = message.channel.permissionsFor(message.author);
-      if (!authorperms || !authorperms.has(command.permissions)) {
-        return message.reply(
-          `To use this command you need \`\`${perms}\`\` permission(s)`
-        );
+      if (message.author.id !== owner) {
+        const perms = capitalize(command.permissions);
+        const authorperms = message.channel.permissionsFor(message.author);
+        if (!authorperms || !authorperms.has(command.permissions)) {
+          return message.reply(
+            `To use this command you need \`\`${perms}\`\` permission(s)`
+          );
+        }
       }
-    }}
+    }
 
     if (command.args && !args.length) {
       message.reply(`.help ${command.name} for information.`);
@@ -37,7 +38,7 @@ module.exports = {
     }
 
     try {
-      command.execute(message, args, prefix, owner, main);
+      command.execute(message, args, prefix, owner, colors);
       console.log(command.name + " was executed by " + message.author.tag);
     } catch (error) {
       console.log(error);
