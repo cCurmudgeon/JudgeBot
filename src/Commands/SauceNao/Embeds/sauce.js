@@ -17,7 +17,6 @@ function saucify(result, color) {
   let altSites = [];
   if (result[1] !== undefined) {
     result.forEach((resu) => {
-      console.log(resu);
       altSites.push(`[${resu.site}](${resu.url})`);
     });
     altSites.shift();
