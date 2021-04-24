@@ -1,6 +1,6 @@
 const battleship = require("kongou");
 const kongou = new battleship();
-const { getBed } = require("./Embeds/get");
+const { getBed } = require("./Embeds/embed");
 
 module.exports = {
   name: "nhentai",

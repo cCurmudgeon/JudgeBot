@@ -59,7 +59,7 @@ function getBed(data, color) {
       },
     ],
     footer: {
-      text: "Uploaded on: " + data.details.upload_date_pretty,
+      text: "Uploaded on: " + data.details.upload_date.pretty,
     },
   };
   return embed;

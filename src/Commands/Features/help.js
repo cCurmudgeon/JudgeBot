@@ -40,7 +40,7 @@ module.exports = {
             args: Truse[command.args],
             usage: command.usage
               ? prefix + command.name + " " + command.usage
-              : "[Any specified type or nothing]",
+              : prefix + command.name + " [Any specified type or nothing]",
             type: command.type
               ? command.type.join(", ")
               : "No Type(s) Specified!",
