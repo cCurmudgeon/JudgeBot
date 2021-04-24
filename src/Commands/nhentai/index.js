@@ -7,7 +7,8 @@ module.exports = {
   description: "nhentai API search.",
   permission: ["SEND_MESSAGES"],
   args: true,
-  usage: "<search/get> <keyword/id>",
+  usage: "<type> <keyword/id>",
+  type: ["search", "get"],
   category: "Features",
 
   async execute(message, args, prefix, owner, colors) {
