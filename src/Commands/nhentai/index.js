@@ -17,8 +17,7 @@ module.exports = {
     if (args[0] === "get") {
       const res = getBed(await kongou.get(arg), colors.nhentai);
       message.channel.send({ embed: res });
-    }
-    if (args[0] === "search") {
+    } else if (args[0] === "search") {
       const res = getBed(await kongou.search(arg, 1, 1), colors.nhentai);
       message.channel.send({
         embed: res,
