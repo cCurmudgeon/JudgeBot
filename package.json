@@ -1,11 +1,11 @@
 {
-  "name": "reimu",
-  "version": "3.0.0",
+  "name": "curstantine",
+  "version": "3.1.0",
   "description": "Just another Discord.js bot",
   "main": "./src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cCurmudgeon/Reimu.git"
+    "url": "git+https://github.com/Curstantine/Curstantine.git"
   },
   "keywords": [
     "Javascript",
@@ -14,9 +14,9 @@
   "author": "Curmudgeon",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cCurmudgeon/Reimu/issues"
+    "url": "https://github.com/Curstantine/Curstantine/issues"
   },
-  "homepage": "https://github.com/cCurmudgeon/Reimu#readme",
+  "homepage": "https://github.com/Curstantine/Curstantine#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
@@ -26,5 +26,9 @@
     "nodemon": "^2.0.7",
     "sagiri": "^3.1.1",
     "turndown": "^7.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "cd src && node index"
   }
 }
