@@ -30,7 +30,7 @@ module.exports = {
     }
 
     if (command.args && !args.length) {
-      message.reply(`.help ${command.name} for information.`);
+      message.reply(`${prefix} help ${command.name} for information.`);
     }
 
     if (command.owner && message.author.id != owner) {
