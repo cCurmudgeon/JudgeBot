@@ -28,6 +28,6 @@
     "turndown": "^7.0.0"
   },
   "scripts": {
-    "test": "cd src && node index"
+    "start": "cd src && node index"
   }
 }
