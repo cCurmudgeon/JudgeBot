@@ -16,15 +16,22 @@ module.exports = {
     message.channel.bulkDelete(amount, true);
     message.channel
       .send(`Cleared \`\`${amount - 1}\`\` of messages.`)
+      .then((response) => {
+        setTimeout(() => {
+          response.delete();
+        }, 4000);
+      })
       .catch((err) => {
         console.error(err);
-        message.author.send(
-          "Discord doesn't allow bots to bulk delete messages that are older than 2 weeks."
-        );
+        message.author
+          .send(
+            "Discord doesn't allow bots to bulk delete messages that are older than 2 weeks."
+          )
+          .then((response) => {
+            setTimeout(() => {
+              response.delete();
+            });
+          });
       });
-
-    setTimeout(() => {
-      message.channel.bulkDelete(1, true);
-    }, 4000);
   },
 };

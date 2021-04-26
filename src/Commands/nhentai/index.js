@@ -19,6 +19,7 @@ module.exports = {
       await kongou
         .get(arg)
         .then((data) => {
+          console.log(data);
           message.channel.send({ embed: getBed(data, colors.nhentai) });
         })
         .catch((error) => {
@@ -36,9 +37,11 @@ module.exports = {
                 secmessage.author.id === message.author.id;
               const collector = message.channel.createMessageCollector(filter, {
                 time: 15000,
+                max: 1,
               });
               collector.on("collect", (mess) => {
                 const number = parseInt(mess.content);
+                mess.delete();
                 lastmessage.edit({
                   embed: getBed(data[number - 1], colors.nhentai),
                 });

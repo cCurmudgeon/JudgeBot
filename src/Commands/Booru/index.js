@@ -1,5 +1,5 @@
-const { konachan } = require("../../API/Haruna/src/index");
-const konacchi = new konachan();
+const haruna = require("./Haruna/src/index");
+const konacchi = new haruna();
 const { resultBed, konaBed } = require("./Embed/konachan");
 module.exports = {
   name: "booru",
@@ -16,7 +16,7 @@ module.exports = {
     );
     if (args[0] === "konachan" || args[0] === "-k") {
       await konacchi
-        .posts(arg, 5, 1, 4)
+        .posts(1, arg, 5, 1, 4)
         .then((data) =>
           message.channel
             .send({ embed: resultBed(data, colors.konachan) })
@@ -25,11 +25,14 @@ module.exports = {
                 secmessage.author.id === message.author.id;
               const collector = message.channel.createMessageCollector(filter, {
                 time: 15000,
+                max: 1,
               });
               collector.on("collect", (mess) => {
                 const number = parseInt(mess.content);
-                const repl = konaBed(data[number - 1], colors.konachan, arg);
-                lastmessage.edit({ embed: repl });
+                mess.delete();
+                lastmessage.edit({
+                  embed: konaBed(data[number - 1], colors.konachan),
+                });
               });
             })
         )

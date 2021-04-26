@@ -4,15 +4,17 @@ function getBed(data, color) {
   data.category.forEach((cate) => {
     categori.push(cate.hyptxt);
   });
-  data.tags.forEach((tag) => {
-    tagg.push(tag.hyptxt);
-  });
-  if (tagg.toString().length >= 1000) {
-    while (tagg.toString().length >= 990) {
-      tagg.pop();
+  if (data.tags.length !== 0) {
+    data.tags.forEach((tag) => {
+      tagg.push(tag.hyptxt);
+    });
+    if (tagg.toString().length >= 1000) {
+      while (tagg.toString().length >= 990) {
+        tagg.pop();
+      }
+      tagg.push("and so it goes...");
     }
-    tagg.push("and so it goes...");
-  }
+  } else tagg.push("No Tags");
   const embed = {
     color: color,
     title: data.details.title.pretty,
