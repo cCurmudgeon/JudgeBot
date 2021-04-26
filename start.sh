@@ -1,2 +1,1 @@
-cd src
-npx nodemon
+cd src && npx nodemon

@@ -28,7 +28,5 @@ module.exports = {
       .then((invite) => {
         console.log(invite);
       });
-    const channel = client.channels.cache.get("654887364619141122");
-    console.log(await channel.messages.fetch({ limit: 20 }));
   },
 };
