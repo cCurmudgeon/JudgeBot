@@ -1,30 +1,30 @@
 const dotenv = require("dotenv").config({
   path: "../../../secrets.env",
 });
-const sagiri = require("sagiri");
-const client = sagiri(process.env.sauceNAO);
-const colors = require("../../colors.json");
-const { saucify } = require("./Embeds/sauce");
+const baseurl = "https://saucenao.com/search.php";
+const fetch = require("node-fetch");
+const { querySauceBed } = require("./Embeds/sauceBed");
 module.exports = {
   name: "saucenao",
   description: "reverse searches using the SauceNAO API",
   permission: ["SEND_MESSAGES"],
   args: false,
   category: "Features",
-  async execute(message, args, prefix) {
-    try {
-      let link;
-      if (message.attachments.array().length !== 0) {
-        link = message.attachments.array()[0].url;
-      } else if (args[0] !== 0) {
-        link = args[0];
-      }
-      message.channel.send({
-        embed: saucify(await client(link), colors.sauceNAO),
-      });
-    } catch (error) {
-      console.log(error);
-      return message.reply(error.message);
+  async execute(message, args, prefix, owner, colors) {
+    let link;
+    if (message.attachments.array().length !== 0) {
+      link = message.attachments.array()[0].url;
+    } else if (args[0] !== 0) {
+      link = args[0];
     }
+    const response = await fetch(
+      baseurl +
+        "?output_type=2&api_key=" +
+        process.env.saucenao +
+        "&url=" +
+        link
+    );
+    const data = await response.json();
+    message.channel.send({ embed: querySauceBed(data.results) });
   },
 };

@@ -21,13 +21,15 @@
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
     "graphql-request": "^3.4.0",
+    "haruna-js": "^1.1.2",
     "kongou": "^2.5.3",
     "moment": "^2.29.1",
+    "node-fetch": "^2.6.1",
     "nodemon": "^2.0.7",
     "sagiri": "^3.1.1",
     "turndown": "^7.0.0"
   },
   "scripts": {
-    "start": "cd src && node index"
+    "start": "cd src && npx nodemon index"
   }
 }

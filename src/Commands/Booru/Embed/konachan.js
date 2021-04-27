@@ -1,4 +1,8 @@
-function resultBed(data, color) {
+const modes = {
+  1: "Konachan",
+  2: "Yande.re",
+};
+function resultBed(data, color, mode) {
   let results = [];
   data.forEach((result, i) => {
     results.push(
@@ -7,12 +11,11 @@ function resultBed(data, color) {
       }](${result.details.siteUrl})`
     );
   });
-  console.log(results);
   const embed = {
     color: color,
-    title: "Search results from Konachan",
+    title: "Search results from " + modes[mode],
     author: {
-      name: "Konachan",
+      name: modes[mode],
       icon_url: "https://i.imgur.com/jj0EV2p.png",
     },
     description: results.join("\n"),
@@ -22,10 +25,11 @@ function resultBed(data, color) {
   };
   return embed;
 }
-function konaBed(data, color) {
+function FillBed(data, color, mode) {
   let tags = [];
   data.tags.forEach((tag) => {
-    tags.push(tag.hyptxt);
+    console.log(tag);
+    tags.push(`[${tag.name}](${tag.url})`);
   });
   if (tags.length > 1000) {
     while (tags.length > 1000) {
@@ -34,9 +38,9 @@ function konaBed(data, color) {
   }
   const embed = {
     color: color,
-    title: "Search result from Konachan",
+    title: "Search result from " + modes[mode],
     author: {
-      name: "Konachan",
+      name: modes[mode],
       icon_url: "https://i.imgur.com/jj0EV2p.png",
     },
     url: data.details.siteUrl,
@@ -81,4 +85,4 @@ function konaBed(data, color) {
   };
   return embed;
 }
-module.exports = { resultBed, konaBed };
+module.exports = { resultBed, FillBed };
