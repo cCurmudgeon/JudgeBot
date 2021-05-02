@@ -24,6 +24,16 @@ module.exports = {
         "&url=" +
         link
     );
+    if (response.status === 403) {
+      return (
+        message.reply(
+          "Error: " + response.statusText + " [" + response.status + "]"
+        ) &&
+        console.log(
+          `Error: ${response.statusText} [${response.status}] at: \n ${response.url}`
+        )
+      );
+    }
     const data = await response.json();
     message.channel.send({ embed: querySauceBed(data.results) });
   },
