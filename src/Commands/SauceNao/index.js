@@ -4,6 +4,8 @@ const dotenv = require("dotenv").config({
 const baseurl = "https://saucenao.com/search.php";
 const fetch = require("node-fetch");
 const { querySauceBed } = require("./Embeds/sauceBed");
+
+const support = ["gif", "jpg", "png", "bmp", "svg", "webp"];
 module.exports = {
   name: "saucenao",
   description: "reverse searches using the SauceNAO API",
@@ -17,14 +19,28 @@ module.exports = {
     } else if (args[0] !== 0) {
       link = args[0];
     }
+    let checkedLink;
+    support.forEach((type) => {
+      if (link.endsWith(type) === true) {
+        checkedLink = link;
+      }
+    });
+    console.log(checkedLink);
+    if (checkedLink === undefined) {
+      const popped = support.pop();
+      return message.reply(
+        `only ${support.join(", ")} and ${popped} are supported by SauceNAO.`
+      );
+    }
+
     const response = await fetch(
       baseurl +
         "?output_type=2&api_key=" +
         process.env.saucenao +
         "&url=" +
-        link
+        checkedLink
     );
-    if (response.status === 403) {
+    if (response.status !== 200) {
       return (
         message.reply(
           "Error: " + response.statusText + " [" + response.status + "]"
@@ -35,6 +51,8 @@ module.exports = {
       );
     }
     const data = await response.json();
-    message.channel.send({ embed: querySauceBed(data.results) });
+    message.channel.send({
+      embed: querySauceBed(data.results, colors.saucenao),
+    });
   },
 };

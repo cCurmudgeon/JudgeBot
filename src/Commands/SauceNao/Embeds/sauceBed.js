@@ -1,7 +1,8 @@
 function querySauceBed(results, color) {
   let titles = [];
-
+  let title = [];
   results.forEach((result, i) => {
+    title.push(result);
     titles.push(
       `${i + 1}. [**${result.data.title ? result.data.title : "No title!"}**](${
         result.data.ext_urls ? result.data.ext_urls : ""

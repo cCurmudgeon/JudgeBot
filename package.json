@@ -31,5 +31,8 @@
   },
   "scripts": {
     "start": "cd src && npx nodemon index"
+  },
+  "devDependencies": {
+    "jshint": "^2.12.0"
   }
 }
