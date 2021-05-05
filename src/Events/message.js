@@ -39,7 +39,9 @@ module.exports = {
 
     try {
       command.execute(message, args, prefix, owner, colors);
-      console.log(command.name + " was executed by " + message.author.tag);
+      console.log(
+        command.name + " was executed by " + message.author.tag + "\n"
+      );
     } catch (error) {
       console.log(error);
       if (message.author == process.env.OWNER_ID) {

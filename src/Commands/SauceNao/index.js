@@ -25,7 +25,6 @@ module.exports = {
         checkedLink = link;
       }
     });
-    console.log(checkedLink);
     if (checkedLink === undefined) {
       const popped = support.pop();
       return message.reply(
@@ -34,6 +33,13 @@ module.exports = {
     }
 
     const response = await fetch(
+      baseurl +
+        "?output_type=2&api_key=" +
+        process.env.saucenao +
+        "&url=" +
+        checkedLink
+    );
+    console.log(
       baseurl +
         "?output_type=2&api_key=" +
         process.env.saucenao +
@@ -51,8 +57,10 @@ module.exports = {
       );
     }
     const data = await response.json();
+    const result = querySauceBed(data.results, colors.saucenao);
     message.channel.send({
-      embed: querySauceBed(data.results, colors.saucenao),
+      embed: result.highest,
     });
+    message.channel.send({ embed: result.alts });
   },
 };
