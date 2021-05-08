@@ -1,9 +1,10 @@
-Hep! I am a Javascript newbie, so go easy one my code!  
+Hep! 
 
 
-## Tools I use
+## Tools
 
-**IDE: Visual Code Studio  
+**OS: Manjaro 21.x.x Ornara
+IDE: Visual Code Studio  
 Linter: ESLnt and JShint  
 Formatter: Prettier**  
 
