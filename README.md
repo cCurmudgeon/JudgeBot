@@ -4,7 +4,7 @@ Hep!
 ## Tools
 
 **OS: Manjaro 21.x.x Ornara  
-IDE: Visual Studio Code 
+IDE: Visual Studio Code  
 Linter: ESLint and JShint  
 Formatter: Prettier**  
 
