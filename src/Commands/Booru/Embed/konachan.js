@@ -6,7 +6,7 @@ function resultBed(data, color, mode) {
   let results = [];
   data.forEach((result, i) => {
     results.push(
-      `${i + 1}. [${
+      `${i + 1}. Uploaded by [${
         result.details.author ? result.details.author : "Not Specified"
       }](${result.details.siteUrl})`
     );
@@ -26,10 +26,10 @@ function resultBed(data, color, mode) {
   return embed;
 }
 function FillBed(data, color, mode) {
+  console.log(data);
   let tags = [];
   data.tags.forEach((tag) => {
-    console.log(tag);
-    tags.push(`[${tag.name}](${tag.url})`);
+    tags.push(`[${tag.pretty}](${tag.url})`);
   });
   if (tags.length > 1000) {
     while (tags.length > 1000) {
@@ -44,7 +44,7 @@ function FillBed(data, color, mode) {
       icon_url: "https://i.imgur.com/jj0EV2p.png",
     },
     url: data.details.siteUrl,
-    thumbnail: {
+    image: {
       url: data.details.image.full.image,
     },
     fields: [
@@ -54,14 +54,14 @@ function FillBed(data, color, mode) {
         inline: true,
       },
       {
-        name: "Author",
+        name: "Uploader",
         value: data.details.author,
         inline: true,
       },
       {
         name: "Age Rating",
         value: data.details.rating,
-        inline: false,
+        inline: true,
       },
       {
         name: "Score",
@@ -80,7 +80,7 @@ function FillBed(data, color, mode) {
       },
     ],
     footer: {
-      text: "Uploaded on: " + data.metadata.created_at.pretty,
+      text: "Uploaded on: " + data.details.created_at.pretty,
     },
   };
   return embed;

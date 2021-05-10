@@ -9,6 +9,7 @@ module.exports = {
   usage: "<type> <keyword>",
   type: ["konachan", "yandere"],
   category: "Features",
+  owner: true,
 
   async execute(message, args, prefix, owner, colors) {
     const arg = message.content.slice(
@@ -21,7 +22,7 @@ module.exports = {
     if (args[0] === "yandere" || args[0] === "-y") {
       mode = 2;
     }
-    await konacchi
+    return await konacchi
       .posts(mode, arg, 1, 5, 1, 4)
       .then((data) =>
         message.channel
@@ -35,7 +36,7 @@ module.exports = {
             });
             collector.on("collect", (mess) => {
               const number = parseInt(mess.content);
-              if (isNaN(number)) message.reply("Command canceled.");
+              if (isNaN(number)) return mess.reply("Command canceled.");
               mess.delete();
               lastmessage.edit({
                 embed: FillBed(data[number - 1], colors.konachan, mode),
