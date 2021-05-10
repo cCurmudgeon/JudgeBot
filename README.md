@@ -4,8 +4,8 @@ Hep!
 ## Tools
 
 **OS: Manjaro 21.x.x Ornara  
-IDE: Visual Code Studio  
-Linter: ESLnt and JShint  
+IDE: Visual Studio Code 
+Linter: ESLint and JShint  
 Formatter: Prettier**  
 
 **Color Themes:** [Atom One Dark Pro](https://marketplace.visualstudio.com/items/akamud.vscode-theme-onedark), [Electron Color Theme](https://marketplace.visualstudio.com/items?itemName=kuscamara.electron)  
