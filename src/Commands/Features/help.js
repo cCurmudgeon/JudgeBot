@@ -48,9 +48,16 @@ module.exports = {
           });
         }
       });
-      message.channel.send({
-        embed: specificHelp(answer[0], prefix, colors.main),
-      });
+      if (answer.length === 0) {
+        return message.reply("No commands by the name of " + args).then(
+          message.channel.send({
+            embed: helpBed(commands, prefix, colors.main),
+          })
+        );
+      } else
+        message.channel.send({
+          embed: specificHelp(answer[0], prefix, colors.main),
+        });
     }
   },
 };

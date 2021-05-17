@@ -5,16 +5,16 @@ function helpBed(data, prefix, color) {
   let usrRelated = [];
   data.forEach((command) => {
     if (command.category === "Moderation") {
-      mod.push(command.name);
+      mod.push(" " + command.name + " ");
     }
     if (command.category === "Client") {
-      client.push(command.name);
+      client.push(" " + command.name + " ");
     }
     if (command.category === "User Related") {
-      usrRelated.push(command.name);
+      usrRelated.push(" " + command.name + " ");
     }
     if (command.category === "Features") {
-      feature.push(command.name);
+      feature.push(" " + command.name + " ");
     }
   });
   const embed = {

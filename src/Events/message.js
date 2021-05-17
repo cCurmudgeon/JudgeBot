@@ -6,7 +6,6 @@ module.exports = {
 
   execute(message, client, prefix, owner) {
     if (!message.content.startsWith(prefix)) return;
-
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
     const command =
@@ -16,7 +15,6 @@ module.exports = {
       );
 
     if (!command) return;
-
     if (command.permissions) {
       if (message.author.id !== owner) {
         const perms = capitalize(command.permissions);
@@ -28,24 +26,37 @@ module.exports = {
         }
       }
     }
-
     if (command.args && !args.length) {
-      message.reply(`${prefix} help ${command.name} for information.`);
+      return message.reply(
+        `\`${prefix}help ${command.name}\` for information.`
+      );
     }
 
     if (command.owner && message.author.id != owner) {
       return message.reply("Command is restricted.");
     }
+    if (args[0] === "help") {
+      let arr = [command.name];
+      return client.commands
+        .get("help")
+        .execute(message, arr, prefix, owner, colors);
+    }
 
     try {
       command.execute(message, args, prefix, owner, colors);
       console.log(
-        command.name + " was executed by " + message.author.tag + "\n"
+        command.name +
+          " was executed by " +
+          message.author.tag +
+          "\n" +
+          "with [ " +
+          args.join(", ") +
+          " ] arguments. \n"
       );
     } catch (error) {
       console.log(error);
-      if (message.author == process.env.OWNER_ID) {
-        message.channel.send(`${error}`);
+      if (message.author.id === owner) {
+        message.channel.send(error.message);
       } else message.reply("Welp I ran into a problem!");
     }
   },

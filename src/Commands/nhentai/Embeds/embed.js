@@ -1,3 +1,4 @@
+const moment = require("moment");
 function getBed(data, color) {
   let categori = [];
   let tagg = [];
@@ -24,7 +25,7 @@ function getBed(data, color) {
     },
     url: data.details.link,
     thumbnail: {
-      url: data.images[0],
+      url: data.images.thumb[0],
     },
     fields: [
       {
@@ -61,7 +62,11 @@ function getBed(data, color) {
       },
     ],
     footer: {
-      text: "Uploaded on: " + data.details.upload_date.pretty,
+      text:
+        "Uploaded on: " +
+        moment(new Date(data.details.upload_date)).format(
+          "MMMM Do YYYY, h:mm:ss a"
+        ),
     },
   };
   return embed;

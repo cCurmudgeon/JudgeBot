@@ -1,5 +1,4 @@
-const battleship = require("kongou");
-const kongou = new battleship();
+const kongou = require("kongou");
 const { getBed } = require("./Embeds/embed");
 const { queryBed } = require("./Embeds/queryBed");
 module.exports = {
@@ -19,7 +18,6 @@ module.exports = {
       await kongou
         .get(arg)
         .then((data) => {
-          console.log(data);
           message.channel.send({ embed: getBed(data, colors.nhentai) });
         })
         .catch((error) => {

@@ -1,6 +1,5 @@
 const jeyson = require("../../../package.json");
 const repolink = jeyson.repository.url.replace(".git", "/").replace("git+", "");
-console.log(repolink);
 
 module.exports = {
   name: "git",
