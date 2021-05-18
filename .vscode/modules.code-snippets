@@ -10,6 +10,7 @@
   "args: boolean,",
   "usage: string,",
   "type: array,",
+  "typeReq: boolean,",
   "category: string,",
   "async execute(message, args, prefix, owner, colors){}}",
 	],

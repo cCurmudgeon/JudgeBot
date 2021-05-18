@@ -23,7 +23,7 @@ module.exports = {
 
       const avatar = await user.avatarURL({
         format: "png",
-        size: 256,
+        size: 2048,
         dynamic: true,
       });
       const res = {

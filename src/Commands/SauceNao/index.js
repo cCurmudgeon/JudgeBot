@@ -39,13 +39,7 @@ module.exports = {
         "&url=" +
         checkedLink
     );
-    console.log(
-      baseurl +
-        "?output_type=2&api_key=" +
-        process.env.saucenao +
-        "&url=" +
-        checkedLink
-    );
+
     if (response.status !== 200) {
       return (
         message.reply(

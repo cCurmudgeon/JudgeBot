@@ -3,13 +3,13 @@ const konacchi = new haruna();
 const { resultBed, FillBed } = require("./Embed/konachan");
 module.exports = {
   name: "booru",
-  description: "A booru ani-board based searches",
+  description: "Fetches images from moebooru-like image boards.",
   permission: ["SEND_MESSAGES"],
   args: true,
   usage: "<type> <keyword>",
+  typeReq: true,
   type: ["konachan", "yandere"],
   category: "Features",
-  owner: true,
 
   async execute(message, args, prefix, owner, colors) {
     const arg = message.content.slice(

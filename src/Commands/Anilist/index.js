@@ -15,6 +15,7 @@ module.exports = {
   args: true,
   usage: "<type> <keywords>",
   type: ["anime", "manga", "user", "character"],
+  typeReq: true,
   category: "Features",
   async execute(message, args, prefix, owner, colors) {
     const arg = message.content.slice(

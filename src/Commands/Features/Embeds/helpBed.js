@@ -1,3 +1,4 @@
+const { capitalize } = require("../../Anilist/API/filters");
 function helpBed(data, prefix, color) {
   let client = [];
   let mod = [];
@@ -49,7 +50,7 @@ function helpBed(data, prefix, color) {
 function specificHelp(data, prefix, color) {
   const embed = {
     color: color,
-    title: data.name + " help",
+    title: capitalize(data.name) + " help!",
     description: data.description,
     fields: [
       {
@@ -70,6 +71,11 @@ function specificHelp(data, prefix, color) {
       {
         name: "Permissions Required",
         value: data.permission,
+        inline: true,
+      },
+      {
+        name: "Type Required?",
+        value: data.typeReq,
         inline: true,
       },
       {

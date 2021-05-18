@@ -5,29 +5,31 @@ const Truse = {
 };
 module.exports = {
   name: "help",
-  description: "Maps all of the commands.",
-  permission: ["SEND_MESSAGES"],
-  args: false,
-  category: "Client",
   async execute(message, args, prefix, owner, colors) {
     const commandcollection = message.client.commands;
     let commands = [];
     commandcollection.map((command) => {
-      commands.push({
-        name: command.name,
-        description: command.description,
-        permission: command.permissions,
-        args: command.args,
-        usage: command.usage,
-        type: command.type,
-        category: command.category,
-      });
+      if (command.name !== "help" && !command.owner) {
+        commands.push({
+          name: command.name,
+          description: command.description,
+          permission: command.permissions,
+          args: command.args,
+          usage: command.usage,
+          typeReq: command.typeReq,
+          type: command.type,
+          category: command.category,
+        });
+      }
     });
     if (!args.length) {
-      message.channel.send({
+      return message.channel.send({
         embed: helpBed(commands, prefix, colors.main),
       });
     } else {
+      if (args[0] === "help") {
+        return message.reply("lol no");
+      }
       let answer = [];
       commands.forEach((command) => {
         if (command.name === args[0]) {
@@ -41,6 +43,7 @@ module.exports = {
             usage: command.usage
               ? prefix + command.name + " " + command.usage
               : prefix + command.name + " [Any specified type or nothing]",
+            typeReq: command.typeReq ? Truse[command.typeReq] : "No",
             type: command.type
               ? command.type.join(", ")
               : "No Type(s) Specified!",
@@ -55,7 +58,7 @@ module.exports = {
           })
         );
       } else
-        message.channel.send({
+        return message.channel.send({
           embed: specificHelp(answer[0], prefix, colors.main),
         });
     }

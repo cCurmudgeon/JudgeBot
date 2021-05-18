@@ -41,6 +41,13 @@ module.exports = {
         .get("help")
         .execute(message, arr, prefix, owner, colors);
     }
+    if (command.typeReq && !command.type.includes(args[0])) {
+      message.reply("A specified type is not given!");
+      let arr = [command.name];
+      return client.commands
+        .get("help")
+        .execute(message, arr, prefix, owner, colors);
+    }
 
     try {
       command.execute(message, args, prefix, owner, colors);
