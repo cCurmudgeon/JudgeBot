@@ -12,4 +12,4 @@ Langauges I know: Javascript, Typescript
 Have fun :wink:
 _if you have any songs that you like please do share._
 
-<iframe src="https://open.spotify.com/embed/playlist/0YBXOetQggz4MguSlxgXLb" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe src="https://open.spotify.com/embed/playlist/0YBXOetQggz4MguSlxgXLb" width="500" height="200" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
