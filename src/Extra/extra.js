@@ -7,9 +7,4 @@ function capitalize(str) {
     .join(" ");
   return string;
 }
-function check(array) {
-  if (array.length === 0) {
-    return "No description";
-  }
-}
-module.exports = { capitalize, check };
+module.exports = { capitalize };

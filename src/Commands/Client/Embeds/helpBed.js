@@ -1,4 +1,4 @@
-const { capitalize } = require("../../Anilist/API/filters");
+const { capitalize } = require("../../../Extra/extra");
 function helpBed(data, prefix, color) {
   let client = [];
   let mod = [];

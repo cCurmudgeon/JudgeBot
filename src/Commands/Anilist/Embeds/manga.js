@@ -1,4 +1,4 @@
-const { capitalize } = require("../API/filters");
+const { capitalize } = require("../../../Extra/extra");
 const TurndownService = require("turndown");
 const turndownService = new TurndownService();
 const anilistLogo = "https://anilist.co/img/logo_al.png";

@@ -15,6 +15,17 @@
   "async execute(message, args, prefix, owner, colors){}}",
 	],
 	"description": "Defines a new module export of a command."
+},
+"Embed-field-values": {
+  "scope" : "javascript",
+  "prefix": "embedField",
+  "body": [
+    "{",
+      "name: String,",
+      "value: String,",
+      "inline: true,",
+    "},",
+  ],
+  "description": "Defines a field value of a Embed"
 }
-
 }

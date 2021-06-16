@@ -1,4 +1,4 @@
-const { capitalize } = require("./Options/filters");
+const { capitalize } = require("../Extra/extra");
 const colors = require("../colors.json");
 module.exports = {
   name: "message",

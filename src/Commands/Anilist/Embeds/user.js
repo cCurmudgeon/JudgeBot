@@ -1,4 +1,4 @@
-const { capitalize } = require("../API/filters");
+const { capitalize } = require("../../../Extra/extra");
 const TurndownService = require("turndown");
 const turndownService = new TurndownService();
 const anilistLogo = "https://anilist.co/img/logo_al.png";
@@ -22,7 +22,10 @@ function usrInfoBed(info, colors) {
       icon_url: anilistLogo,
     },
     title: info.User.name,
-    description: pipe(removespacers, shorten)(info.User.about ? info.User.about : "No description."),
+    description: pipe(
+      removespacers,
+      shorten
+    )(info.User.about ? info.User.about : "No description."),
     url: info.User.siteUrl,
     thumbnail: {
       url: info.User.avatar.large,

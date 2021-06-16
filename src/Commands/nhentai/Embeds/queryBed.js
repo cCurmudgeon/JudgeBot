@@ -14,6 +14,11 @@ function queryBed(data, color) {
         ")"
     );
   });
+  if (titles.toString().length > 2048) {
+    while (titles.toString().length > 2048) {
+      titles.pop();
+    }
+  }
   const embed = {
     color: color,
     title: "Search Results",
